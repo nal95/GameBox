@@ -28,34 +28,34 @@ public class TicTacToeGame implements Game {
 
             int[] move;
 
-            if(player == -1) {
+            if (player == -1) {
                 move = ui.getPlayerInputInt(2, "Player One enter your the (row and column): ");
-            }else{
+            } else {
                 move = ui.getPlayerInputInt(2, "Player Two enter your the (row and column): ");
             }
 
-            if (tictactoe.isMoveValid(move)){
+            if (tictactoe.isMoveValid(move)) {
 
                 tictactoe.playerMove(move, player);
                 ui.displayGameState(tictactoe.printBoard());
 
                 if (tictactoe.isGameOver()) {
                     break;
-                }else if(tictactoe.getGameMode() == GameMode.SINGLE){
+                } else if (tictactoe.getGameMode() == GameMode.SINGLE) {
 
                     tictactoe.computerMove();
                     ui.displayGameState(tictactoe.printBoard());
 
-                } else if (tictactoe.getGameMode() == GameMode.VERSUS){
+                } else if (tictactoe.getGameMode() == GameMode.VERSUS) {
 
-                    if (player == -1){
+                    if (player == -1) {
                         player = 1;
-                    }else {
+                    } else {
                         player = -1;
                     }
                 }
 
-            }else{
+            } else {
                 ui.displayGameState("This move is not possible");
             }
         }

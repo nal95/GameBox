@@ -40,11 +40,11 @@ public class TicTacToe {
         }
 
         return px + '\n' + py + '\n'
-                + line_one.toString() + '\n'
+                + line_one + '\n'
                 + "      ---------" + '\n'
-                + line_two.toString() + '\n'
+                + line_two + '\n'
                 + "      ---------" + '\n'
-                + line_three.toString() + '\n';
+                + line_three + '\n';
     }
 
     public void playerMove(int[] move, int value) {

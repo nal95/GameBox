@@ -26,6 +26,25 @@ public class HangmanDictionary {
         fetchWordsFromAPI();
     }
 
+    private static JSONArray getJsonArray(String stringUrl) throws IOException {
+        URL url = new URL(stringUrl);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
+
+        // Read the response from the API
+        Scanner scanner = new Scanner(connection.getInputStream());
+        StringBuilder response = new StringBuilder();
+
+        while (scanner.hasNextLine()) {
+            response.append(scanner.nextLine());
+        }
+
+        scanner.close();
+
+        // Parse the JSON array in the API response
+        return new JSONArray(response.toString());
+    }
+
     public List<String> getWords() {
         return words;
     }
@@ -46,25 +65,6 @@ public class HangmanDictionary {
             //TODO: work on error handling & logging
             e.printStackTrace();
         }
-    }
-
-    private static JSONArray getJsonArray(String stringUrl) throws IOException {
-        URL url = new URL(stringUrl);
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setRequestMethod("GET");
-
-        // Read the response from the API
-        Scanner scanner = new Scanner(connection.getInputStream());
-        StringBuilder response = new StringBuilder();
-
-        while (scanner.hasNextLine()) {
-            response.append(scanner.nextLine());
-        }
-
-        scanner.close();
-
-        // Parse the JSON array in the API response
-        return new JSONArray(response.toString());
     }
 
 }

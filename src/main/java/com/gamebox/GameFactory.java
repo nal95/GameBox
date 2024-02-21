@@ -2,8 +2,8 @@ package com.gamebox;
 
 import com.gamebox.game.*;
 import com.gamebox.hangmanLogic.HangmanDictionary;
-import com.gamebox.ui.HangmanUI;
 import com.gamebox.tictactoeLogic.TicTacToe;
+import com.gamebox.ui.HangmanUI;
 import com.gamebox.ui.TicTacToeUI;
 import com.gamebox.ui.UI;
 
